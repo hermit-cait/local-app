@@ -1,11 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
 
+body {  
+  background-color: seashell;
+}
+
 section {
-  border: 1rem solid tomato;
-  background-color: rgb(247, 239, 216);
+  background-color: seashell;
   text-align: center;
   border-radius: 2rem;
-  width: 20rem;
   margin: 0 auto;
   margin-block-start: 1rem;
   padding: 3rem;
@@ -22,6 +24,17 @@ li {
   font-family: Rubik;
 }
 
+h1 {
+  font-size: 3rem;
+}
+
+label,
+input,
+button,
+li {
+  font-size: 1.5rem;
+}
+
 input,
 label,
 button {
@@ -36,4 +49,25 @@ button {
 ul {
   text-align: left;
   align-self: flex-start;
+}
+
+@media (min-width: 400px) {
+
+  section {
+    border: 1rem solid tomato;
+    width: 20rem;
+    margin: 2rem auto;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  label,
+  input,
+  button,
+  li {
+    font-size: 1rem;
+  }
+
 }

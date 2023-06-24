@@ -1,17 +1,27 @@
+document.getElementById("submit").addEventListener("click", newElement); 
+document.getElementById("submit").addEventListener("keydown", newElement);
+
 // Fetches list data from localStorage
 
-/* const itemList = []; */
-const itemList = JSON.parse(localStorage.getItem('listKey'));
+const itemList = [];
+
+/* const itemList = JSON.parse(localStorage.getItem('listKey')); */
 
 function newElement() {
-
-  // Creates an empty li element
-
-  var li = document.createElement("li");
 
   // Takes the content of the input form and saves it as inputValue
 
   var inputValue = document.getElementById("item").value;
+
+  // Adds and saves each new list item to localStorage
+
+  itemList.push(inputValue);
+  localStorage.setItem('listKey', JSON.stringify(itemList));
+  const listData = JSON.parse(localStorage.getItem('listKey'));
+
+  // Creates an empty li element
+
+  var li = document.createElement("li");
 
   // Takes inputValue and saves it in the empty li element
 
@@ -27,16 +37,8 @@ function newElement() {
   }
   document.getElementById("item").value = "";
 
-  // Adds and saves each new list item to localStorage
-
-  itemList.push(inputValue);
-  localStorage.setItem('listKey', JSON.stringify(itemList));
-  const listData = JSON.parse(localStorage.getItem('listKey'));
-  console.log(listData);
-
   // Un-comment this to clear localStorage
 
   /* localStorage.clear(); */
-
 
 }

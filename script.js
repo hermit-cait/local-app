@@ -1,13 +1,31 @@
 document.getElementById("submit").addEventListener("click", newElement); 
-document.getElementById("submit").addEventListener("keydown", newElement);
 
 // Fetches list data from localStorage
 
-const itemList = [];
+if (localStorage.getItem('listKey') == null) {
+  var itemList = [];
+} else {
+  itemList = JSON.parse(localStorage.getItem('listKey'));
+}
 
-/* const itemList = JSON.parse(localStorage.getItem('listKey')); */
+// Publishes saved data to the UI
+
+function restoreData() {
+  for (let i = 0; i < itemList.length; i++) {    
+    var li = document.createElement("li");
+    var storedData = document.createTextNode(itemList[i]);
+    li.appendChild(storedData);
+    document.getElementById("myUL").appendChild(li);
+  }
+}
+
+restoreData();
 
 function newElement() {
+
+  // Creates an empty li element
+
+  var li = document.createElement("li");
 
   // Takes the content of the input form and saves it as inputValue
 
@@ -17,15 +35,11 @@ function newElement() {
 
   itemList.push(inputValue);
   localStorage.setItem('listKey', JSON.stringify(itemList));
-  const listData = JSON.parse(localStorage.getItem('listKey'));
-
-  // Creates an empty li element
-
-  var li = document.createElement("li");
+  var listData = JSON.parse(localStorage.getItem('listKey'));
 
   // Takes inputValue and saves it in the empty li element
 
-  var todo = document.createTextNode(inputValue);
+  var todo = document.createTextNode(listData.slice(-1));
   li.appendChild(todo);
 
   // Checks first that the field is not empty... then displays this new inputValue in the UI... and clears the input form
@@ -36,9 +50,23 @@ function newElement() {
     document.getElementById("myUL").appendChild(li);
   }
   document.getElementById("item").value = "";
+  
+  console.log(localStorage)
 
-  // Un-comment this to clear localStorage
+}
 
-  /* localStorage.clear(); */
+// Clears localStorage
 
+document.getElementById("clear").addEventListener("click", clearStorage); 
+document.getElementById("clear").addEventListener("keydown", clearStorage);
+var app = document.getElementById("app")
+
+function clearStorage() {
+  localStorage.clear();
+  document.getElementById("myUL").remove();
+  var myUL = document.createElement("ul");
+  myUL.setAttribute('id', 'myUL');
+  app.appendChild(myUL);
+  itemList = [];
+  listData = [];
 }

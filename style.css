@@ -10,14 +10,6 @@ body {
   background-color: seashell;  
 }
 
-section {
-  text-align: center;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 // TEXT STYLES //
 
 h1,
@@ -41,6 +33,14 @@ li {
 }
 
 // LAYOUT AND SPACING //
+
+section {
+  text-align: center;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 input,
 label,

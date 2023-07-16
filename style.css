@@ -10,7 +10,7 @@ body {
   background-color: seashell;  
 }
 
-// TEXT STYLES //
+/* TEXT STYLES */
 
 h1,
 label,
@@ -32,7 +32,7 @@ li {
   font-size: 1.5rem;
 }
 
-// LAYOUT AND SPACING //
+/* LAYOUT AND SPACING */
 
 section {
   text-align: center;
@@ -67,7 +67,7 @@ li {
   margin-block: 0.5rem;
 }
 
-// MEDIA QUERIES FOR DESKTOP //
+/* MEDIA QUERIES FOR DESKTOP */
 
 @media (min-width: 600px) {
 

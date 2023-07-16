@@ -3,7 +3,7 @@ document.getElementById("submit").addEventListener("click", newElement);
 // Fetches list data from localStorage
 
 if (localStorage.getItem('listKey') == null) {
-  var itemList = [];
+  itemList = [];
 } else {
   itemList = JSON.parse(localStorage.getItem('listKey'));
 }
@@ -12,8 +12,8 @@ if (localStorage.getItem('listKey') == null) {
 
 function restoreData() {
   for (let i = 0; i < itemList.length; i++) {    
-    var li = document.createElement("li");
-    var storedData = document.createTextNode(itemList[i]);
+    li = document.createElement("li");
+    let storedData = document.createTextNode(itemList[i]);
     li.appendChild(storedData);
     document.getElementById("myUL").appendChild(li);
   }
@@ -25,21 +25,21 @@ function newElement() {
 
   // Creates an empty li element
 
-  var li = document.createElement("li");
+  li = document.createElement("li");
 
   // Takes the content of the input form and saves it as inputValue
 
-  var inputValue = document.getElementById("item").value;
+  inputValue = document.getElementById("item").value;
 
   // Adds and saves each new list item to localStorage
 
   itemList.push(inputValue);
   localStorage.setItem('listKey', JSON.stringify(itemList));
-  var listData = JSON.parse(localStorage.getItem('listKey'));
+  listData = JSON.parse(localStorage.getItem('listKey'));
 
   // Takes inputValue and saves it in the empty li element
 
-  var todo = document.createTextNode(listData.slice(-1));
+  todo = document.createTextNode(listData.slice(-1));
   li.appendChild(todo);
 
   // Checks first that the field is not empty... then displays this new inputValue in the UI... and clears the input form
@@ -50,8 +50,6 @@ function newElement() {
     document.getElementById("myUL").appendChild(li);
   }
   document.getElementById("item").value = "";
-  
-  console.log(localStorage)
 
 }
 
@@ -59,12 +57,12 @@ function newElement() {
 
 document.getElementById("clear").addEventListener("click", clearStorage); 
 document.getElementById("clear").addEventListener("keydown", clearStorage);
-var app = document.getElementById("app")
+app = document.getElementById("app")
 
 function clearStorage() {
   localStorage.clear();
   document.getElementById("myUL").remove();
-  var myUL = document.createElement("ul");
+  myUL = document.createElement("ul");
   myUL.setAttribute('id', 'myUL');
   app.appendChild(myUL);
   itemList = [];
